@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}First-order receptor kinetics}{2}
+\contentsline {section}{\numberline {2}Receptor occupancy difference for shallow gradients}{2}
+\contentsline {section}{\numberline {3}Chemotaxis Index CI from SNR and estimates for $\sigma _B$ and $I$}{3}
+\contentsline {section}{\numberline {4}Reaction-diffusion equations for all models}{4}
+\contentsline {section}{\numberline {5}Simulation geometry and boundary conditions}{5}
+\contentsline {section}{\numberline {6}Estimates of model parameters}{5}
+\contentsline {subsection}{\numberline {6.1}PDE diffusion coefficient $D_p$}{5}
+\contentsline {subsection}{\numberline {6.2}cAMP-PDE turnover number $k_2$}{5}
+\contentsline {subsection}{\numberline {6.3}PDE secretion flux $P_0$}{6}
+\contentsline {section}{\numberline {7}Fixed PDE secretion flux model: additional results}{7}
+\contentsline {subsection}{\numberline {7.1}Constant absolute gradient $|\mathaccentV {vec}17E{\nabla }c|_{\mathrm {app}}$}{7}
+\contentsline {subsection}{\numberline {7.2}Constant midpoint concentration $c_{0, \mathrm {app}}$}{8}
+\contentsline {section}{\numberline {8}Fixed PDE concentration model $p(\mathaccentV {vec}17E{r},t) = p_0$; uniform PDE}{9}
+\contentsline {subsection}{\numberline {8.1}Microfluidic geometry}{9}
+\contentsline {subsection}{\numberline {8.2}Cell boundary effects on SNR}{9}
+\contentsline {subsection}{\numberline {8.3}cAMP point source, full 3D model}{11}
+\contentsline {section}{\numberline {9}Peclet number analysis of flow-gradient experiments}{13}
+\contentsline {section}{References}{13}

@@ -1,0 +1,72 @@
+\providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%
+\begin{thebibliography}{10}
+
+\bibitem{song}
+L.~Song, S.M. Nadkarni, H.U. Bodeker, C.~Beta, A.~Bae, C.~Franck, J-W. Rappel,
+  W.F. Loomis, and E.~Bodenschatz.
+\newblock Dictyostelium discoideum chemotaxis: threshold for directed motion.
+\newblock {\em Eur. J. Cell Biol.}, 85:981--989, 2006.
+
+\bibitem{eberhard1}
+G.~Amselem, M.~Theves, A.~Bae, C.~Beta, and E.Bodenschatz.
+\newblock Control parameter description of eukaryotic chemotaxis.
+\newblock {\em Phys. Rev. Lett.}, 109:108103, 2012.
+
+\bibitem{fuller-1}
+D.~Fuller, W.~Chen, M.~Adler, A.~Groisman, H.~Levine, J-W. Rappel, and W.F.
+  Loomis.
+\newblock External and internal constraints on eukaryotic chemotaxis.
+\newblock {\em Proc. Natl. Acad. Sci. USA}, 107:9656--9659, 2010.
+
+\bibitem{SNRvh}
+P.J.M. van Haastert and M.~Postma.
+\newblock Biased random walk by stochastic fluctuations of
+  chemoattractant-receptor interactions at the lower limit of detection.
+\newblock {\em Biophys. J.}, 93:1787--1796, 2007.
+
+\bibitem{KmcAMPPDEandPDI}
+R.H. Kessin, S.J. Orlow, R.I. Shapiro, and J.~Franke.
+\newblock Binding of inhibitor alters kinetic and physical properties of
+  extracellular cyclic amp phosphodiesterase from \emph{Dictyostelium
+  discoideum}.
+\newblock {\em Proc. Natl. Acad. Sci. USA}, 76:5450--5454, 1979.
+
+\bibitem{QSSA}
+J.A.M. Borghans, R.J.~De Boer, and L.A. Segel.
+\newblock Extending the quasi-steady state approximation by changing variables.
+\newblock {\em Bull. of Math. Biology}, 58:43--63, 1996.
+
+\bibitem{diffusion}
+G.~Carta and A.~Jungbauer.
+\newblock {\em Protein Chromatography: Process Development and Scale-Up}.
+\newblock Wiley-WCH, 2010.
+
+\bibitem{diffusion2}
+M.T. Tyn and T.W. Gusek.
+\newblock Prediction of diffusion coefficients of proteins.
+\newblock {\em Biotechnol. Bioeng.}, 35:327--338, 1989.
+
+\bibitem{k2paper}
+R.P. Yeh, F.K. Chan, and M.B. Coukell.
+\newblock Independent regulation of the extracellular cyclic amp
+  phosphodiesterase-inhibitor system and membrane differentiation by exogenous
+  cyclic amp in \emph{Dictyostelium discoideum}.
+\newblock {\em Dev. Biol.}, 66:361--374, 1978.
+
+\bibitem{pde-purification}
+S.J. Orlow, R.I. Shapiro, J.~Franke, and R.H. Kessin.
+\newblock The extracellular cyclic nucleotide phosphodiesterase of
+  \emph{Dictyostelium discoideum}.
+\newblock {\em J. Biol. Chem.}, 256:7620--7627, 1981.
+
+\bibitem{PdePdiKd}
+J.~Franke and R.H. Kessin.
+\newblock The cyclic nucleotide phosphodiesterase inhibitory protein of
+  dictyostelium discoideum. purification and characterization.
+\newblock {\em J. Biol. Chem.}, 256:7628--7637, 1981.
+
+\bibitem{wolfram}
+Wolfram Alpha.
+\newblock http://www.wolframalpha.com.
+
+\end{thebibliography}

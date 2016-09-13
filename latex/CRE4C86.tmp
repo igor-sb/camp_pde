@@ -1,0 +1,261 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
+%   Version 4.1r of REVTeX, August 2010
+%
+%   Copyright (c) 2009, 2010 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.1
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,prl,
+ showpacs,
+ linenumbers
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+
+\title{Extracellular processing of molecular gradients by eukaryotic cells can improve gradient detection accuracy}
+
+\author{Igor Segota}
+ \altaffiliation[Present address: ]{Department of Physics, University of California San Diego}
+%Lines break automatically or can be forced with \\
+ \email{is246@cornell.edu}
+\author{Carl Franck}%
+ %\email{Second.Author@institution.edu}
+\affiliation{Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca 14853, USA}
+
+\date{\today}
+
+\begin{abstract}
+
+Eukaryotic cells sense molecular gradients by measuring spatial concentration differences through the difference in the number of occupied receptors to which molecules can bind. They also secrete enzymes that degrade these molecules, and it is presently not well understood how this affects the local gradient perceived by a cell. Using numerical and analytical models, we show that these enzymes can substantially increase signal-to-noise ratio of the receptor difference and allow cells to respond to a much broader range of molecular concentrations and gradients. 
+
+\end{abstract}
+
+\pacs{87.17.Jj, 82.39.Fk, 87.10.Ed, 87.10.Kn} % PACS, the Physics and Astronomy
+\maketitle
+
+%
+%
+% Introduction
+%
+%
+Eukaryotic cells sense and follow molecular concentration gradients
+in a process called chemotaxis. This process is essential for numerous biological functions
+such as proliferation, organ formation, wiring of the nervous system,
+wound healing and cancer \cite{review1,cancer-rev,zigchemotaxis}.
+In contrast to bacteria \cite{bacteriaChemo}, eukaryotic cells are
+large enough ($\gtrsim10\,\mu\mathrm{m}$) to be able
+to directly measure concentration differences across their bodies
+\cite{bergpurcell}. This is achieved by taking
+snapshots of the non-uniform occupancy of their cell surface receptors
+to which diffusing molecules can bind.
+
+The physical limits of chemotactic sensitivity in eukaryotic cells
+have been extensively studied both theoretically and experimentally,
+often by calculating theoretical limits and then comparing the accuracy
+of the experimental chemotaxis response to these limits \cite{bergpurcell,wing1,wing2,
+rappelherbie1,rappelherbie2,rappelherbie3,fuller-1,shib,song,eberhard1,eberhard2,me}.
+However, since many cells secrete enzymes that can inactivate chemotactic signals, the local gradient near the cell surface may differ from the gradient away from the cell.
+
+% Figure 1.
+\begin{figure}[t]
+	\centering
+	\includegraphics[scale=0.7]{../figures/fig1}
+	\caption{\linespread{1.0}\selectfont{}Signal-to-noise ratio (SNR) and model geometry. 
+	\textbf{a}. SNR is defined as the receptor difference between the front half and back half of the cell (signal) divided by the receptor shot noise $\sigma_R$ and non-receptor noise $\sigma_B$.
+	\textbf{b}. When the relative gradient $|\vec{\nabla}c|/c = \mathrm{const.}$, the optimal average concentration that maximizes SNR is $c=K_d$, since the receptor occupancy difference $\Delta R$ has maximum when $c=K_d$ and $\mathrm{SNR} \propto \sqrt{\Delta R}$.
+	\textbf{c}. Geometry and boundary conditions for 3D numerical simulations; c = cAMP, p = PDE concentration (not to scale). Constant relative gradient can be set in the bulk of the domain and away from the cell, by changing the cAMP concentration on the left boundary $c(-w/2)$, while keeping $c(w/2) = 0$. $w = 1\,\mathrm{mm}$.
+	}
+	\label{fig:geom}
+\end{figure}
+For example, \emph{Dictyostelium discoideum} cells secrete phosphodiesterases (PDE) \cite{PDE} that inactivate cyclic adenosine monophosphate (cAMP) signals \cite{kessinBook}, \emph{Saccharomyces cerevisiae} cells secrete Bar1 protease that degrades $\alpha$-factor pheromone \cite{yeast1,yeast2,yeast3} and neutrophils can inactivate chemotactic formylmethionyl peptides \cite{zigchemotaxis}.
+More recently, it has been suggested that the PDE inactivation can steepen cAMP gradients in \emph{D. discoideum} (\cite{kessinBook}, p.125) or improve the gradient direction alignment with the direction of the nearest mating partner in \emph{S. cerevisiae} \cite{yeast1,yeast2,yeast3}.
+
+In \emph{D. discoideum}, PDE exists in membrane bound and a secreted extracellular form \cite{PDE,pde2,pde3,pde-purification}, both encoded by the same gene \emph{pdsA}. Nanjundiah and Malchow \cite{mechanism1} argued, using dimensional analysis, that the extracellular PDE has no observed effect. More recently, Palsson et al. \cite{palsson0,palsson1,palsson2} showed that within the particular parameter range of their model, PDE becomes important for wave propagation at low cell densities. Experimentally, \emph{D. discoideum} \emph{pdsA-} strain (deleted PDE gene) has been shown to fail to aggregate \cite{pde-knockouts1,pde-knockouts2} and to respond to a reduced range of cAMP concentrations compared to wild-type \cite{pdsA1}. Despite these efforts, it remains poorly understood how exactly extracellular PDE affects the local cAMP gradient perceived by cells.
+
+We address this question by developing and solving 3D reaction-diffusion models of cAMP-PDE interaction in the extracellular space, for a typical microfluidic geometry \cite{me,wu} and in space where a cell is detecting gradient emitted by a point source. 
+Then, we use the spatial dependence of cAMP and PDE to calculate the gradient detection signal-to-noise ratio (SNR) of the receptor response following Rappel and Levine \cite{rappelherbie2} and van Haastert and Postma \cite{SNRvh} and predict how the chemotaxis index is affected by extracellular PDE.
+
+First, we can gain some intuition about SNR by considering a linearly increasing cAMP concentration $c(x)$ in 1D.  
+Assuming the steady state of cAMP to cAMP-receptor binding, each receptor at coordinate $x$ can be thought of as a Bernoulli trial with the probability of being occupied $p(x) = c(x)/[c(x) + K_d]$ and unoccupied with probability $1-p(x)$, where $K_{d}$ is the cAMP to cAMP-receptor binding dissociation constant (SI, Section 1).
+For a uniform receptor distribution on the cell surface (shown experimentally \cite{uniform_receptor_distribution}) and cAMP concentration $c(x) = c_0 -|\nabla c|x$, this is equivalent to having half receptors on each cell half at $x = \mp r_c/2$ ($r_c$ is cell radius, cell is centered at $x=0$). The distribution of the number of occupied receptors on each half of the cell follows a Binomial distribution with the average and variance:
+\begin{equation}
+	R_{F,B} = \frac{N}{2} \frac{c_{F,B}}{c_{F,B} + K_d},\quad
+	\sigma_{R_{F,B}}^{2}= \frac{N}{2} \frac{c_{F,B} K_d}{(c_{F,B} + K_d)^2}
+	\label{eq:RFB}
+\end{equation}
+where $c_{F,B} = c(\mp r_c/2)$ and $N$ is the total number of receptors per cell; here $K_d=30\,\mathrm{nM}$, $N=70,000$ \cite{RtKdcAR1}. 
+%Since $N\gg1$, Binomial distribution can be approximated with Normal distribution so $R_F$, $R_B$ and $\Delta R=R_{F}-R_{B}$ are all Normally distributed \cite{normalDifference}. 
+SNR is defined as \cite{SNRvh, rappelherbie2} (Fig.\ref{fig:geom}a):
+\begin{equation}
+	\mathrm{SNR}=\frac{\Delta R}{\sqrt{\sigma_B^2+\sigma_{\Delta R}^2/I}}, \Delta R = R_F-R_B
+	\label{eq:SNRdef}
+\end{equation}
+where $\Delta R$ and $\sigma_{\Delta R}^2 = \sigma_{R_F}^2 + \sigma_{R_B}^2$ are the average (``signal'') and variance (square of the ``noise'') of the difference of occupied receptors at the front and back half of the cell, $\sigma_B$ the non-receptor noise and $I$ is the the number of statistically independent measurements of the occupied receptors performed within the integration time \cite{SNRvh}.
+
+For shallow gradients, the concentration difference between the cell front and back is small ($r_c |\nabla c| \ll K_d$) so the average and variance of the receptor difference are (SI, Section 2):
+\begin{equation}
+	\Delta R \approx \frac{N}{2}\frac{K_d r_c \left|\nabla c\right|}{\left(c_0 + K_d\right)^2},\quad 
+	\sigma_{\Delta R}^2 \approx N \frac{c_0 K_d}{\left(c_0 + K_d\right)^2}
+	\label{eq:signal_noise_def}
+\end{equation}
+For fixed relative gradients $\left|\nabla c\right|/c_0 = \mathrm{const.}$: (i)  the receptor occupancy $R_{F,B}$ has the steepest increase at $c_0=K_d$, so $\Delta R \propto dR/dc$ is maximal, and (ii) the noise is proportional to the square root of the signal $\sigma_{\Delta R} \propto \sqrt{\Delta R}$. Then, SNR is also proportional to the square root of the signal: $\mathrm{SNR} \propto \Delta R/ \sqrt{\Delta R} = \sqrt{\Delta R}$ and also maximal at $c_0 = K_d$ (Fig.\ref{fig:geom}b). Therefore, the optimal average cAMP concentration for gradient sensing without PDE is at exactly $K_d$ when the receptor occupancies are $\approx 50\%$.
+
+For parameter values $\sigma_{B}=73$ and $I=1.4$ the measured chemotaxis index (CI) was fit to the empirical equation $\mathrm{CI} = \mathrm{SNR}/(\mathrm{SNR} + 1)$.
+
+%
+%
+%  Fixed PDE secretion flux model
+%
+%
+\emph{Fixed PDE secretion flux model.}--- We consider a system of two interacting molecules, PDE and cAMP, following
+Michaelis-Menten kinetics:
+\begin{equation}
+	\mathrm{PDE+cAMP}\overset{k_{1}}{\underset{k_{-1}}{\rightleftharpoons}}C_{cp}\overset{k_{2}}{\rightharpoonup}\mathrm{PDE+5'AMP}
+	\label{eq:PDEcAMPint}
+\end{equation}
+where $k_i$ represent the reaction rates, $C_{cp}$ represents the intermediate cAMP-PDE complex and
+5'AMP the product of this reaction (a deactivated signal).
+
+% Figure 2. Fixed PDE secretion flux model results.
+\begin{figure}[!th]
+	\centering
+	\includegraphics[scale=0.25]{../figures/fig2}
+	\caption{
+		\linespread{1.0}\selectfont{}Fixed PDE secretion flux model with relative gradient 
+		$r_c |\vec{\nabla}c|/c_0=1\%$.
+		\textbf{a}. SNR as a function of PDE secretion flux $P_0$ and cAMP boundary
+		concentration $c(-w/2)$. SNR can be substantially improved by PDE for a range of 
+		parameters $P_0$ and $c(-w/2)$.
+		\textbf{b}. Horizontal slices from a. The red curve for $P_0 = 10^{-14}\,\mathrm{mol\,m^{-2} s^{-1}} \approx 0$, i.e. matches SNR in Fig.\ref{fig:geom}b. PDE can increase SNR for $c(-w/2) \gtrsim  K_d$.
+		\textbf{c}. Vertical slices from a. Increasing $P_0$ shifts the optimal cAMP concentration towards higher values but also broadens the detectable range of cAMP concentrations.
+		\textbf{d}. Broadening of curves from c is quantified by calculating the range of $c(-w/2)$ for which $\mathrm{SNR} \geq 1$.
+		\textbf{e}. Chemotaxis index (CI) calculated as $\mathrm{SNR}/(\mathrm{SNR}+1)$ (details in SI Section 3).
+		\textbf{f}. Vertical slices from e. 
+	}
+	\label{fig:Results1}
+\end{figure}
+
+The concentrations of cAMP $c(\vec{r},t)$, PDE $p(\vec{r},t)$, cAMP-PDE complex
+$C_{cp}(\vec{r},t)$ and the 5'AMP $c'(\vec{r},t)$, are obtained in the standard quasi-steady
+state assumption \cite{QSSA}. This assumes that intermediate complex concentration does not change on the time scale of product formation, i.e. $k_{1}cp=(k_{-1}+k_{2})C_{cp}$, so the two relevant steady-state equations are:
+\begin{equation}
+		D_c\nabla^{2}c-\frac{k_2}{K_M}pc = 0, \quad
+		D_p\nabla^{2}p = 0
+  \label{eq:main_sys}
+\end{equation}
+where $D_c$ and $D_p$ are the diffusion constants of cAMP and PDE and $K_M \equiv (k_{-1}+k_2)/k_1$. 
+These equations are solved numerically using COMSOL 3.5 (Comsol Inc.) with MATLAB R2011a (The MathWorks, Inc.) for the boundary conditions mimicking typical experiments \cite{me,varnumsollStatic,fisherStatic}, (Fig.\ref{fig:geom}c, SI Section 3). 
+cAMP concentration is varied on the left boundary $c(x{=}{-}w/2)$, zero on the right boundary $c(x{=}w/2) = 0$ and the normal component of cAMP flux is zero everywhere else, including the cell boundary \footnote{Zero-normal cAMP flux seems reasonable since the time scale for receptor internalization is 5 minutes [A. Serge et al. Integr. Biol., 3, 675-683, 2011] compared to the time scale of receptor dissociation of 1 second [M. Ueda et al. Science, 294, 864-867, 2001], so the binding and unbinding processes are in equilibrium.}. 
+PDE concentration is zero on $p(x{=}\pm w/2) = 0$ while the normal flux is zero everywhere else except for the cell boundary where it's set to $P_0$.
+The parameters used in simulations were: $K_M=10\,\mathrm{\mu M}$ \cite{KmcAMPPDEandPDI}, $D_{c}=444\,\mathrm{\mu m^{2}s^{-1}}$ \cite{DcAMP}, $D_{p}=70\,\mathrm{\mu m^{2}s^{-1}}$, $k_{2}=13,300\,\mathrm{s^{-1}}$(estimated; SI, Section 4), $r_c = 5\, \mathrm{\mu m}$. 
+
+SNR results, as a function of PDE secretion flux $P_0$ and cAMP concentration on the left boundary $c(-w/2)$, for the relative gradient $r_c|\vec{\nabla} c|/c_0 = 1 \%$ are shown in Fig.\ref{fig:Results1}a. 
+They show that PDE can substantially improve SNR for a range of $P_0$ and $c(-w/2)$ values and the improvement is better for large cAMP concentrations. If the midpoint concentration is $c_0 \lesssim K_d$ ($c(-w/2) \lesssim 2\, K_d$), then SNR cannot be increased further (Fig.\ref{fig:Results1}b). PDE can also broaden the range of cAMP detection by increasing the $c(-w/2)$ range for which $\mathrm{SNR} \geq 1$ (Fig.\ref{fig:Results1}c,d). This behavior is also reflected in the CI (Fig.\ref{fig:Results1}e,f). The SNR improvement by PDE also occurs when either the absolute gradient $|\vec{\nabla}c|$ or the midpoint concentration $c_0$ are fixed (SI, Section 5).
+
+According to Fig.\ref{fig:Results1}, the relevant $P_0$ range between $10^{-12}$ and $10^{-10}\,\mathrm{mol\, m^{-2}s^{-1}}$, falls within the rough physiological range estimated here for PDE of $10^{-11}\,\mathrm{mol\, m^{-2}s^{-1}}$ (SI) and by others for Bar1 of $10^{-12}\,\mathrm{mol\, m^{-2}s^{-1}}$ (which degrades $\alpha$-factor pheromone signal in yeast) \cite{yeast2}.
+
+
+%
+%
+% Fixed PDE concentration model
+%
+%
+\emph{Fixed PDE concentration model.}--- Next, we consider the case of time-independent and spatially uniform PDE concentration, $p(x,t)=p_{0}$,  without a cell boundary in the middle, but otherwise same boundary conditions as before. We again vary cAMP concentration on the left boundary $c(-w/2)$ and set $c(w/2) = 0$. The solution of Eqs.\ref{eq:main_sys} is:
+\begin{equation}
+	c(x) = c(-w/2) \frac{\sinh\left(\frac{w}{2L}-\frac{x}{L}\right)}
+		{\sinh\left(\frac{w}{L}\right)},\quad L=\sqrt{\frac{K_M D_c}{k_2p_0}}
+	\label{eq:uniform_pde_analytic_sol}
+\end{equation}
+SNR is calculated by plugging this result into Eqs.\ref{eq:SNRdef},\ref{eq:RFB} and is shown in Fig.\ref{fig:uniform_pde_results}a,b.
+
+% Figure 3. uniform PDE
+\begin{figure}[t]
+	\centering
+	\includegraphics[scale=0.245]{../figures/fig3_pde_flux_plots}
+	\caption{
+		\linespread{1.0}
+		Analytical exact solution for fixed PDE concentration model, with varying $c(-w/2)$ and $c(w/2)=0$ (as in Fig.\ref{fig:Results1}). 
+		\textbf{a}. $\mathrm{SNR}(p_0, c(-w/2))$, which shows similar trend to the fixed PDE secretion flux case from Fig.\ref{fig:Results1}.
+		\textbf{b}. Horizontal slices from a. Same color legend applies also to d and e.
+		\textbf{c}. Midpoint concentration $c_0$, relative gradient $|\vec{\nabla}c|/c_0$ and absolute gradient $|\vec{\nabla}c|$ (relative to their values with $p_0=0$) as a function of PDE concentration $p_0$. 
+		\textbf{d}. Signal ($\Delta R$) as a function of $p_0$, showing PDE can . 
+		\textbf{e}. Noise as a function of $p_0$, with lower limit of $\sigma_b = 73$ and upper limit of $\sqrt{\sigma_B^2 + N/(4I)}$.
+		\textbf{f}. Ratio of SNR and SNR with $p_0=0$. 
+	}
+	\label{fig:uniform_pde_results}
+\end{figure}
+
+\begin{figure}{t}
+	\centering
+	\includegraphics[scale=0.245]{../figures/fig4_analytical_pde_uniform_snr}
+\end{figure}
+
+The analytical expression for SNR can be simplified under the approximation of shallow gradients $r_c|\vec{\nabla}c| \ll K_d$ which is well satisfied in this work ($\mathrm{max}(r_c|\vec{\nabla}c|/K_d) = 5\cdot10^{-3}$):
+
+\begin{equation}
+	\mathrm{SNR} \approx \frac{N K_d r_c |\vec{\nabla}c|}{2\sqrt{\sigma_B^2(c_0 + K_d)^2 + N c_0 K_d}}
+\end{equation}
+The similarity in SNR between Fig.\ref{fig:uniform_pde_results}a and Fig.\ref{fig:Results1}a (by rescaling the x axis) occurs because only the local PDE and cAMP concentrations near the cell are of importance.
+ 
+At the midpoint $x = 0$, the cAMP concentration and gradient are (Fig.\ref{fig:uniform_pde_results}c):
+\begin{equation}
+	|\vec{\nabla} c| = \frac{c(-w/2)}{2L\sinh\left(\frac{w}{2L}\right)},\quad 
+	c_0 = \frac{c(-w/2)}{2\cosh\left(\frac{w}{2L}\right)}
+\end{equation}
+which correctly reduce to their original values $|\vec{\nabla}c| = c(-w/2)/w$ and $c_0 = c(-w/2)/2$ in the the $p_0 \to 0$ ($L \to \infty$) limit. 
+
+This shows that PDE acts by reducing the gradient but even more the average concentration, so the signal $\Delta R \propto |\vec{\nabla}c|/(c_0 + K_d)^2$ across the cell is enhanced. As before, Fig.\ref{fig:uniform_pde_results}d shows the signal $\Delta R$ can be improved only if the average (midpoint) concentration is $c_0 \gtrsim K_d$ without PDE. For PDE concentrations $\lesssim \,1\,\mathrm{nM}$, PDE can generate up to $\sim 1000$ receptors difference. 
+
+One of the key contributors to enhanced SNR is the upper bound on the total noise (Fig.\ref{fig:uniform_pde_results}e), which is $\sqrt{\sigma_B^2 + N/(4I)} \approx 134$ at $c_0 = K_d$ (Eq.\ref{eq:signal_noise_def}). The fixed non-receptor noise $\sigma_B = 73$ sets a lower bound on the total noise. That means the overall scale of the noise is independent of PDE concentration. On the other hand, the signal does not have an upper bound, can be written as $\Delta R = N f(p_0)$. Then, $\mathrm{SNR} \propto f(p_0)$ enhancement completely comes from the increase in the signal $\Delta R$, through $f(p_0)$.
+Under very high cAMP concentrations $c_0 \gtrsim 100\,K_d$, the PDE can enhance the signal (receptor occupancy difference) and also the SNR, by more than an order of magnitude (Fig.\ref{fig:uniform_pde_results}f), while the noise remains capped to its maximum, PDE-independent, value. 
+
+Similar results are also reproduced numerically if we have the cell boundary in the middle of domain (SI, Section 6) like in fixed PDE secretion flux model and in full 3D space for the cAMP emitted by the point source (SI, Section 7).
+
+%
+% 	Discussion
+%
+\emph{Concluding remarks.}--- In summary, we investigated the effects of extracellular PDE on cAMP gradient sensing in \emph{D. discoideum}.
+We find that the secretion of PDE by cells shifts their response towards higher cAMP concentrations (as expected) but can also greatly increase the SNR and broaden the range of signal detection. This contrasts an earlier conclusion reached using dimensional analysis \cite{mechanism1}. The SNR increase is directly related to the increase in the signal (differential receptor occupancy), since the noise is capped to the maximum value, independent of PDE. 
+
+Previously, it has been experimentally observed that \emph{pdsA-} cells (which also lack membrane-bound PDE which is not considered here) respond to a lower range of cAMP concentrations \cite{pdsA1}, as predicted by our model. These predictions can be tested quantitatively by measuring CI across the range of cAMP concentrations for both wild-type and \emph{pdsA-} cells. 
+
+Furthermore, the CI is observed to decrease if the cells are starved for longer time periods, and exposed to the same gradient $|\vec{\nabla} c| \approx 0.03 \,\mathrm{nM\,\mu m^{-1}}$, $c_0 \approx 30\,\mathrm{nM}$ (Fig.4 in \cite{fisherStatic}). This can also be explained by our model, since the peak of shifts towards higher cAMP concentrations if the PDE accumulates in the environment.
+
+The effects discussed here also lead to different predictions between the experiments with static non-flowing gradients where cAMP gradients are affected by secreted PDE \cite{me,varnumsollStatic,fisherStatic}
+and the experiments with static flowing gradients \cite{song,fuller-1,eberhard1} where the PDE is flushed away. The flow gradient experiments are considered advantageous since the cells are prevented to communicate with each other with cAMP (while not significantly distorting the local gradient around the cell \cite{ebFlow}), however they also completely wash away extracellular PDE (Section 8, SI). 
+
+Finally, we neglected the effects of PDE inhibitor (PDI), which is expected to get secreted under high PDE levels \cite{PdePdiKd} and would effectively increase the Michaelis-Menten constant of the cAMP-PDE interaction towards millimolar range \cite{KmcAMPPDEandPDI}.
+
+
+\section*{Acknowledgments}
+
+We thank Cornell ACCEL computer lab for the access to COMSOL Multiphysics
+and MATLAB software, and anonymous referees for insightful suggestions.
+
+\bibliography{references}%  Produces the bibliography via BibTeX.
+
+\end{document}

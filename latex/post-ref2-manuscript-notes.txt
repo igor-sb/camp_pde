@@ -1,0 +1,23 @@
+Manuscript summary
+
+1. Introduction. Establish relevance, previous work, etc. DONE
+
+2. SNR. Intuitevely explain what it is on a simple example, Fig.1. DONE
+
+3. Numerical simulations. Fixed PDE secretion rate model.
+   Show: (1) Fig.2a. SNR fancy plot. Show there is a range where PDE improves SNR. DONE
+         (2) Fig.2b. PDE can improve SNR only for concentrations > Kd. Intuitive explanation. DONE
+         (3) Fig.2cd. PDE can broaden the detection range of cAMP.
+         (4) Fig.2ef. CI(SNR) is improved. f shows something you could measure.
+         
+4. Analytical / exact solutions, uniform PDE model. 
+   With this model, we can show exact solutions for cAMP concentration, gradient, 
+   signal, noise, SNR. 
+   Show: (1) Fig.3a. SNR looks very similar to previous model. Mention in the text
+             that only local cAMP gradient (near the cell) is what is important. 
+         (2) Fig.3b. PDE changes SNR by changing both dc and c, but not with dc ~ c.
+         (3) Show the increase in receptor number?
+                  
+5. Discussion
+	- Mention cases other than dc/c = const (e.g. dc = const, and c = const for which I have the data) and refer to the results in the SI for both SNR and CI. 
+	- Mention spherical model, refer to the results in the SI.
