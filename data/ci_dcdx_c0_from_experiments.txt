@@ -1,0 +1,98 @@
+CI	c0_nM	dcdx_nM_um	experiment	distance_from_pipette_um	cAMP_nM	cAMP_pipette_uM	gradient_type	year
+0.125	0.1	0.002	"van Haastert, Postma; pipette"	50		0.1	static	2007
+0.25	0.2	0.008	"van Haastert, Postma; pipette"	25		0.1	static	2007
+0.7	0.42	0.0347	"van Haastert, Postma; pipette"	12		0.1	static	2007
+0.125	0.33	0.0022	"van Haastert, Postma; pipette"	150		1	static	2007
+0.25	0.5	0.005	"van Haastert, Postma; pipette"	100		1	static	2007
+0.5	1	0.02	"van Haastert, Postma; pipette"	50		1	static	2007
+0.76	2	0.08	"van Haastert, Postma; pipette"	25		1	static	2007
+0.24	2.5	0.0125	"van Haastert, Postma; pipette"	200		10	static	2007
+0.46	3.33	0.0222	"van Haastert, Postma; pipette"	150		10	static	2007
+0.575	5	0.05	"van Haastert, Postma; pipette"	100		10	static	2007
+0.65	6.67	0.0889	"van Haastert, Postma; pipette"	75		10	static	2007
+0.77	10	0.2	"van Haastert, Postma; pipette"	50		10	static	2007
+0.8	20	0.8	"van Haastert, Postma; pipette"	25		10	static	2007
+0.12	5	0.005	"van Haastert, Postma; pipette"	1000		100	static	2007
+0.2	7.14	0.0102	"van Haastert, Postma; pipette"	700		100	static	2007
+0.3	10	0.02	"van Haastert, Postma; pipette"	500		100	static	2007
+0.5	16.67	0.0556	"van Haastert, Postma; pipette"	300		100	static	2007
+0.75	25	0.125	"van Haastert, Postma; pipette"	200		100	static	2007
+0.81	33.33	0.2222	"van Haastert, Postma; pipette"	150		100	static	2007
+0.85	50	0.5	"van Haastert, Postma; pipette"	100		100	static	2007
+0.87	66.67	0.8889	"van Haastert, Postma; pipette"	75		100	static	2007
+0.92	200	8	"van Haastert, Postma; pipette"	25		100	static	2007
+0.2	6.5	0.005	"van Haastert, Postma; bridge"		10		static	2007
+0.5	65	0.05	"van Haastert, Postma; bridge"		100		static	2007
+0.73	650	0.5	"van Haastert, Postma; bridge"		1000		static	2007
+0.13	0.3129	0.0062	"van Haastert, Postma; population 250 um"		2.96		static	2007
+0.27	1.0798	0.0215	"van Haastert, Postma; population 250 um"		10.2		static	2007
+0.53	3.1061	0.0619	"van Haastert, Postma; population 250 um"		29.35		static	2007
+0.66	10.5263	0.2097	"van Haastert, Postma; population 250 um"		99.46		static	2007
+0.85	31.9794	0.637	"van Haastert, Postma; population 250 um"		302.15		static	2007
+0.95	108.3771	2.1587	"van Haastert, Postma; population 250 um"		1023.97		static	2007
+0.09	0.5989	0.0046	"van Haastert, Postma; population 650 um"		99.46		static	2007
+0.2	1.8195	0.0139	"van Haastert, Postma; population 650 um"		302.15		static	2007
+0.4	6.1662	0.0472	"van Haastert, Postma; population 650 um"		1023.97		static	2007
+0.66	17.7368	0.1359	"van Haastert, Postma; population 650 um"		2945.41		static	2007
+0.8	59.5642	0.4563	"van Haastert, Postma; population 650 um"		9891.35		static	2007
+0.9	179.3166	1.3737	"van Haastert, Postma; population 650 um"		29777.66		static	2007
+0	0.05	0.0001	"Varnum, Soll"				static	1984
+0.13	0.5	0.0005	"Varnum, Soll"				static	1984
+0.34	5	0.005	"Varnum, Soll"				static	1984
+0.35	50	0.05	"Varnum, Soll"				static	1984
+0.25	500	0.5	"Varnum, Soll"				static	1984
+0.06	5000	5	"Varnum, Soll"				static	1984
+-0.05	0.002	0.025	Fisher et al.				static	1989
+0.09	0.02	0.025	Fisher et al.				static	1989
+0.11	0.2	0.025	Fisher et al.				static	1989
+0.225	2	0.025	Fisher et al.				static	1989
+0.4	10	0.025	Fisher et al.				static	1989
+0.45	20	0.025	Fisher et al.				static	1989
+0.3	200	0.025	Fisher et al.				static	1989
+0.05	2000	0.025	Fisher et al.				static	1989
+0	25	0	Fisher et al.				static	1989
+-0.02	25	0.005	Fisher et al.				static	1989
+0	25	0.01	Fisher et al.				static	1989
+0.2	25	0.015	Fisher et al.				static	1989
+0.15	25	0.02	Fisher et al.				static	1989
+0.45	25	0.025	Fisher et al.				static	1989
+0	0	0	Amselem et al.				flow	2012
+0.21	0.5	0.003	Amselem et al.				flow	2012
+0.38	5	0.03	Amselem et al.				flow	2012
+0.47	15.8	0.08	Amselem et al.				flow	2012
+0.62	25	0.1	Amselem et al.				flow	2012
+0.49	50	0.3	Amselem et al.				flow	2012
+0.4	158	1	Amselem et al.				flow	2012
+0.3	250	1	Amselem et al.				flow	2012
+0.19	5000	30	Amselem et al.				flow	2012
+0.05	105	0.03	Amselem et al.				flow	2012
+0.21	75	0.1	Amselem et al.				flow	2012
+0.27	70	0.3	Amselem et al.				flow	2012
+0	0.0005	0.0000033	Song et al.				flow	2006
+0.052863378	0.005	0.000033	Song et al.				flow	2006
+0.052863378	0.05	0.00033	Song et al.				flow	2006
+0.208512357	0.5	0.0033	Song et al.				flow	2006
+0.383289534	5	0.033	Song et al.				flow	2006
+0.31294964	50	0.33	Song et al.				flow	2006
+0.231257159	500	3.3	Song et al.				flow	2006
+0.040449393	5000	33	Song et al.				flow	2006
+0.36	1	0.002	Fuller et al.				flow	2010
+0.41	2	0.005	Fuller et al.				flow	2010
+0.34	10	0.025	Fuller et al.				flow	2010
+0.28	20	0.050	Fuller et al.				flow	2010
+0.18	40	0.100	Fuller et al.				flow	2010
+0.11	5	0.006	Fuller et al.				flow	2010
+0.31	14	0.017	Fuller et al.				flow	2010
+0.21	20	0.025	Fuller et al.				flow	2010
+0.15	35	0.044	Fuller et al.				flow	2010
+0.09	40	0.050	Fuller et al.				flow	2010
+0.25	17.32	0.025	Fuller et al.				flow	2010
+0.23	17.32	0.050	Fuller et al.				flow	2010
+0.37	17.32	0.100	Fuller et al.				flow	2010
+0.64	17.32	0.150	Fuller et al.				flow	2010
+0.64	17.32	0.200	Fuller et al.				flow	2010
+0.03	3.2	0.004	Fuller et al.				flow	2010
+0.30	3.2	0.008	Fuller et al.				flow	2010
+0.57	3.2	0.016	Fuller et al.				flow	2010
+0.58	3.2	0.024	Fuller et al.				flow	2010
+0.48	3.2	0.032	Fuller et al.				flow	2010
